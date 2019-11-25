@@ -5,7 +5,7 @@
   <body style='margin : 0px; overflow: hidden;'>
     <a-scene embedded arjs>
       <a-marker cursor='rayOrigin: mouse' emitevents="true" preset="hiro" id="video-marker">
-        <a-video id="video1" position='0 0.1 0' rotation='270 0 0' scale='1 0.5 1' src="./videos/video1.mp4" playsinline></a-video>
+        <a-video id="video1" position='0 0.1 0' rotation='270 0 0' scale='1 0.5 1' src="./videos/video1.mp4" playsinline autoplay muted loop></a-video>
       </a-marker>
       <a-entity camera></a-entity>
     </a-scene>
@@ -17,12 +17,12 @@
             document.getElementById('video1').play();
           });
         }
-      });*/
+      });
 
       const body = document.querySelector('body');
       body.addEventListener('click', () => {
         document.getElementById('video1').play();
-      });
+      });*/
       </script>
   </body>
 </html>
