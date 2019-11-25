@@ -4,16 +4,20 @@
 <script src="https://raw.githack.com/jeromeetienne/AR.js/1.7.5/aframe/build/aframe-ar.js"></script>
   <body style='margin : 0px; overflow: hidden;'>
     <a-scene embedded arjs>
-  	<a-marker emitevents="true" preset="hiro" id="video-marker">
+  	<a-marker cursor='rayOrigin: mouse' emitevents="true" preset="hiro" id="video-marker">
       <a-video id="video1" position='0 0.1 0' rotation='270 0 0' scale='1 0.5 1' src="./videos/video1.mp4" playsinline></a-video>
   	</a-marker>
   	<a-entity camera></a-entity>
     </a-scene>
 
     <script>
-      document.getElementById('video-marker').onclick = function (){
-          document.getElementById('video1').play();
-      };
+      AFRAME.registerComponent('video1', {
+        init: function () {
+          this.el.addEventListener('click', function (evt) {
+            document.getElementById('video1').play();
+          });
+        }
+      });
       </script>
   </body>
 </html>
